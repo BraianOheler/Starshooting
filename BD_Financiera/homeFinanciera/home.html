@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financiera Starshooting</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            
+        </div>
+        <ul class="navbar-links">
+            <li><a href="#home" class="nav-button">Inicio</a></li>
+            <li><a href="#features" class="nav-button">Características</a></li>
+            <li><a href="#about" class="nav-button">Acerca de</a></li>
+            <li><a href="../loginFinanciera/Login.php" class="nav-button" id="loginBtn">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="background-image: url(fondo.png);">
+        <img src="logofin.png" alt="Financiera Starshooting" class="logo">
+        <h1>Bienvenido a Financiera Starshooting</h1>
+        <p>Una nueva forma de gestionar tus finanzas con seguridad y eficiencia.</p>
+        <a href="https://www.youtube.com/watch?v=YqcXX92WGY8" target="_blank">
+            <button class="cta-button">Descubre más</button>
+        </a>
+        
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Nuestras Características</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Seguridad</h3>
+                <p>Protege tus datos con tecnología de última generación.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Eficiencia</h3>
+                <p>Gestiona tus finanzas de manera rápida y sencilla.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Confianza</h3>
+                <p>Con nosotros, tus inversiones siempre estarán seguras.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form class="login-form">
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html> 
