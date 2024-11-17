@@ -1,4 +1,4 @@
-<?php 
+<?php
 $nombrebd = "financiera_starshooting";
 $nombreServidor = "localhost";
 $nombreUsuario = "root";
