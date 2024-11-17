@@ -99,53 +99,27 @@ if(isset($_POST['enviar'])) {
 }
 ?>
 
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <!-- Agregar el método POST y acción del formulario -->
-        <form id="loginForm" method="POST">
-            <input type="text" name="Username" placeholder="🧑 Usuario" required>
-            <input type="password" name="PasswordHash" placeholder="🔒 Contraseña" required>
-            <select name="Rol" required>
-                <option value="" disabled selected>Selecciona un rol</option>
-                <option value="cliente">Cliente</option>
-                <ul></ul>
-                <option value="empleado">Empleado</option>
-                <option value="administrador">Administrador</option>
-            </select>
-            <ul>           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </ul>
-            
-            <button type="submit" name="enviar" value="INGRESAR"> Iniciar Sesión </button>
-            
-        </form>
-      
-        <p id="errorMessage" style="color: red;"></p>
-    </div>
-    <a href="../Registro/Registro.php" target="_blank">No tienes una cuenta? Click aqui para "Registrarse"</a>
-
-</a>
+       <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm" method="POST">
+        <input type="text" name="Username" placeholder="Ingrese su usuario" required>
+        <br>
+        <input type="password" name="PasswordHash" placeholder="Ingrese su Contraseña" required>
+        <br>
+        <!-- Desplegable para seleccionar el rol -->
+        <select name="Rol" required>
+            <option value="">Seleccione su rol</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Administrador">Administrador</option>
+        </select>
+        <br>
+        <button type="submit" name="enviar" value="INGRESAR">Iniciar Sesión</button>
+    </form>
+    <br>
+    <a href="../Registro/Registro.php">No tienes una cuenta? Haz clic aquí para Registrarte</a>
+    <p id="errorMessage" style="color: red;"></p>
+</div>
 
 </body>
 </html>
