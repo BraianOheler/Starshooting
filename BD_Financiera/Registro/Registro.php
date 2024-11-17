@@ -71,6 +71,7 @@
             $nombre = $_POST['Username'];
             $password = $_POST['PasswordHash'];
             $Rol = $_POST['Rol'];
+            $ID_cliente = $_POST['ID_cliente'];
         
             if ($nombre !== $_POST['UsernameConfirm']) {
                 echo "<script>alert('Los nombres de usuario no coinciden.'); location.assign('../Registro/Registro.php');</script>";
@@ -81,10 +82,12 @@
                 echo "<script>alert('Las contraseñas no coinciden.'); location.assign('../Registro/Registro.php');</script>";
                 exit;
             }
+
         
             include("../Conexion_BD_FinancieraStarshooting.php");
         
-            $sql = "INSERT INTO usuarios (Username, PasswordHash, Rol) VALUES ('$nombre', '$password', '$Rol')";
+            $sql = "INSERT INTO usuarios (Username, PasswordHash, Rol, ID_cliente) VALUES ('$nombre', '$password', '$Rol',
+            '$ID_cliente')";
         
             $resultado = mysqli_query($link, $sql);
         
@@ -116,7 +119,7 @@
             <br>
             <input type="password" name="PasswordHash" placeholder="Ingrese una Contraseña" required>
             <input type="password" name="PasswordHashConfirm" placeholder="Repita la Contraseña" required>
-            <br>
+            
             <select name="Rol" required>
                 <option value="" disabled selected>Selecciona un rol</option>
                 <option value="cliente">Cliente</option>
@@ -124,6 +127,8 @@
                 <option value="administrador">Administrador</option>
             </select>
             <br>
+             <input type="text" name="ID_cliente" placeholder="Ingrese su ID de Cliente" required>
+            
             <button type="submit" name="enviar">Crear Cuenta</button>
         </form>
     </div>

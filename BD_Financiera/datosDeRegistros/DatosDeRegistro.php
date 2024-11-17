@@ -71,15 +71,16 @@
 
             $resultado = mysqli_query($link, $sql);
 
-            
+
             if ($resultado) {
+                $ID_cliente = mysqli_insert_id($link);
                 echo "<script>
-                        alert('Los datos fueron ingresados correctamente');
+                        alert('Registro exitoso. Su ID de cliente es: $ID_cliente no lo olvide pues lo necesitara para iniciar sesion');
                         location.assign('../LoginFinanciera/Login.php');
                       </script>";
             } else {
                 echo "<script>
-                        alert('No fue posible ingresar los datos...');
+                        alert('Error al registrar. Intente nuevamente.');
                         location.assign('../Registro/Registro.php');
                       </script>";
             }

@@ -65,21 +65,22 @@
 
 if(isset($_POST['enviar'])) {
 
-    if(empty($_POST['Username']) || empty($_POST['PasswordHash'])) {
+    if(empty($_POST['ID_cliente'] || $_POST['Username']) || empty($_POST['PasswordHash'])) {
         echo "<script>
-        alert('El nombre de usuario o la contraseña no han sido ingresados');
+        alert('El ID_cliente o nombre de usuario o la contraseña no han sido ingresados');
         location.assign('Login.php');
         </script>";
     } else {
         include("../Conexion_BD_FinancieraStarshooting.php");
 
         // Usar las variables correctas para las columnas de la base de datos
+        $ID_cliente = $_POST['ID_cliente'];
         $username = $_POST['Username'];
         $passwordHash = $_POST['PasswordHash'];
         $Rol = $_POST['Rol'];
 
         // Consulta usando las variables correctas
-       $sql = "SELECT * FROM usuarios WHERE Username = '$username' AND PasswordHash = '$passwordHash' AND Rol = '$Rol'";
+       $sql = "SELECT * FROM usuarios WHERE ID_cliente = '$ID_cliente' AND Username = '$username' AND PasswordHash = '$passwordHash' AND Rol = '$Rol'";
 
         $resultado = mysqli_query($link, $sql);
 
@@ -102,6 +103,8 @@ if(isset($_POST['enviar'])) {
        <div class="login-container">
     <h2>Iniciar Sesión</h2>
     <form id="loginForm" method="POST">
+        <input type="text" name="ID_cliente" placeholder="Ingrese su ID de cliente" required>
+        <br>
         <input type="text" name="Username" placeholder="Ingrese su usuario" required>
         <br>
         <input type="password" name="PasswordHash" placeholder="Ingrese su Contraseña" required>
