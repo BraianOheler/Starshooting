@@ -61,49 +61,78 @@
 </head> 
 <body>
 
-<?php 
+<?php
+if (isset($_POST['enviar'])) {
 
-if(isset($_POST['enviar'])) {
-
-    if(empty($_POST['ID_cliente'] || $_POST['Username']) || empty($_POST['PasswordHash'])) {
+    // Verificamos si se han ingresado todos los datos
+    if (empty($_POST['ID_usuario']) || empty($_POST['Username']) || empty($_POST['PasswordHash']) || empty($_POST['Rol'])) {
         echo "<script>
-        alert('El ID_cliente o nombre de usuario o la contraseña no han sido ingresados');
+        alert('El ID, nombre de usuario, la contraseña o el rol no han sido ingresados');
         location.assign('Login.php');
         </script>";
-    } else {
-        include("../Conexion_BD_FinancieraStarshooting.php");
+        exit;
+    }
 
-        // Usar las variables correctas para las columnas de la base de datos
-        $ID_cliente = $_POST['ID_cliente'];
-        $username = $_POST['Username'];
-        $passwordHash = $_POST['PasswordHash'];
-        $Rol = $_POST['Rol'];
+    include("../Conexion_BD_FinancieraStarshooting.php");
 
-        // Consulta usando las variables correctas
-       $sql = "SELECT * FROM usuarios WHERE ID_cliente = '$ID_cliente' AND Username = '$username' AND PasswordHash = '$passwordHash' AND Rol = '$Rol'";
+    // Obtener los datos del formulario
+    $ID_usuario = $_POST['ID_usuario']; // Puede ser cliente o empleado
+    $username = $_POST['Username'];
+    $passwordHash = $_POST['PasswordHash'];
+    $Rol = $_POST['Rol']; // El rol puede ser 'cliente' o 'empleado'
 
-        $resultado = mysqli_query($link, $sql);
+    // Primero verificamos si el ID es de un cliente
+    if ($Rol == 'Cliente') {
+        $sql_cliente = "SELECT * FROM usuarios WHERE ID_cliente = '$ID_usuario' AND Username = '$username' AND PasswordHash = '$passwordHash' AND Rol = 'Cliente'";
+        $resultado_cliente = mysqli_query($link, $sql_cliente);
 
-        if($fila = mysqli_fetch_assoc($resultado)) {
+        if ($fila_cliente = mysqli_fetch_assoc($resultado_cliente)) {
+            // Si el usuario es cliente
             echo "<script>
-            alert('¡Bienvenido querido Usuario!');
-            location.assign('../homeFinanciera/home.html');
+            alert('¡Bienvenido Cliente!');
+            location.assign('../inicioCliente/home.html'); 
             </script>";
         } else {
             echo "<script>
-            alert('El nombre de usuario , la contraseña o el rol ingresado son incorrectos');
+            alert('El nombre de usuario, la contraseña o el ID de cliente ingresado son incorrectos');
             location.assign('Login.php');
             </script>";
         }
-        mysqli_close($link);
     }
+    // Si no es un cliente, verificamos si es un empleado
+    elseif ($Rol == 'Empleado') {
+        $sql_empleado = "SELECT * FROM usuarios WHERE ID_empleado = '$ID_usuario' AND Username = '$username' AND PasswordHash = '$passwordHash' AND Rol = 'Empleado'";
+        $resultado_empleado = mysqli_query($link, $sql_empleado);
+
+        if ($fila_empleado = mysqli_fetch_assoc($resultado_empleado)) {
+            // Si el usuario es empleado
+            echo "<script>
+            alert('¡Bienvenido Empleado!');
+            location.assign('../inicioEmpleado//home.html');
+            </script>";
+        } else {
+            echo "<script>
+            alert('El nombre de usuario, la contraseña o el ID de empleado ingresado son incorrectos');
+            location.assign('Login.php');
+            </script>";
+        }
+    }
+    else {
+        echo "<script>
+        alert('El rol ingresado es incorrecto');
+        location.assign('Login.php');
+        </script>";
+    }
+
+    mysqli_close($link);
 }
 ?>
+
 
        <div class="login-container">
     <h2>Iniciar Sesión</h2>
     <form id="loginForm" method="POST">
-        <input type="text" name="ID_cliente" placeholder="Ingrese su ID de cliente" required>
+        <input type="text" name="ID_usuario" placeholder="Ingrese su ID de cliente o empleado" required>
         <br>
         <input type="text" name="Username" placeholder="Ingrese su usuario" required>
         <br>

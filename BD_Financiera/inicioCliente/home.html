@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starshooting</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ViewStyle.css">
+    <style>
+        /* Estilos para el fondo de la página */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Barra de Navegación */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-brand img {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto;
+        }
+        .navbar-links {
+            list-style: none;
+            display: flex;
+        }
+        .navbar-links li {
+            margin: 0 15px;
+        }
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .navbar-links a:hover {
+            color: #FFD700; /* Color dorado al pasar el mouse */
+        }
+
+        /* Sección Principal */
+        .main-section {
+            background-image: url('fondo.png'); /* Cambia a tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .content {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+        .content p {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .product-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .product-link {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .product-link:hover {
+            background-color: rgba(255, 215, 0, 0.8); /* Dorado */
+        }
+
+        /* Sección de Suscripción */
+        .newsletter {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .newsletter input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button:hover {
+            background-color: #FFA500; /* Naranja */
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="logofin.png" alt="Logo" class="logo">
+            </div>
+            <ul class="navbar-links">
+                <li><a href="#mas-digitales" class="nav-button">Más Digitales</a></li>
+                <li><a href="#nosotros" class="nav-button">Nosotros</a></li>
+                <li><a href="#beneficios" class="nav-button">Beneficios</a></li>
+                <li><a href="#home-banking" class="nav-button">Home Banking</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Principal -->
+    <section class="main-section">
+        <div class="content">
+            <p>Cada producto lo hicimos pensando en vos</p>
+            <div class="product-links">
+                <a href="/pagos/pays.html" class="product-link">Pagos</a>
+                <a href="/cuentas/acounts.html" class="product-link">Cuentas</a>
+                <a href="#prestamos" class="product-link">Préstamos</a>
+                <a href="#mas-digitales" class="product-link">Historial de Transacciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Suscripción -->
+    <section class="newsletter">
+        <p>Subscribite a nuestro newsletter</p>
+        <form action="#">
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Solicitar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Financiera Starshooting - Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
