@@ -108,7 +108,7 @@ if (isset($_POST['enviar'])) {
             // Si el usuario es empleado
             echo "<script>
             alert('¡Bienvenido Empleado!');
-            location.assign('../inicioEmpleado//home.html');
+            location.assign('../inicioEmpleado/home.html');
             </script>";
         } else {
             echo "<script>
@@ -129,7 +129,7 @@ if (isset($_POST['enviar'])) {
 ?>
 
 
-       <div class="login-container">
+    <div class="login-container">
     <h2>Iniciar Sesión</h2>
     <form id="loginForm" method="POST">
         <input type="text" name="ID_usuario" placeholder="Ingrese su ID de cliente o empleado" required>

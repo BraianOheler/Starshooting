@@ -6,7 +6,7 @@
     <title>Registro - Financiera Starshooting</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
-    <style>
+   <style>
         body {
             background-image: url('fondoLogin.png'); /* Asegúrate de que esta ruta sea correcta */
             background-size: cover;
@@ -21,10 +21,10 @@
         .login-container {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
-            border-radius: 30px;
+            border-radius: 0px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
+            width: 250%;
+            max-width: 900px;
             text-align: center;
         }
         input, select, button {
